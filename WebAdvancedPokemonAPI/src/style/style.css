@@ -27,22 +27,28 @@ select {
 
 .pokemon-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr); /* 6 kolommen */
-  gap: 1rem;
-  padding: 1rem;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 2rem;
+  padding: 2rem;
 }
 
 .card {
   background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  padding: 1.5rem;
   text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
 }
 
 .card img {
   width: 100px;
   height: 100px;
+  margin-bottom: 0.5rem;
 }
 
 .fav-btn {
@@ -50,4 +56,86 @@ select {
   background: none;
   border: none;
   cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+.load-more-btn {
+  display: inline-block;
+  margin: 0 auto;
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  background-color: #ef5350;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.load-more-btn:hover {
+  background-color: #d32f2f;
+}
+
+#loadMoreContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.controls label {
+  margin-right: 8px;
+  font-size: 1rem;
+}
+
+.filter-group {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+label[for="typeFilter"], label[for="genFilter"] {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: #ef5350;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.dropbtn:hover {
+  background-color: #d32f2f;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 180px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  border-radius: 8px;
+  padding: 1rem;
+  z-index: 1;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.dropdown.show .dropdown-content {
+  display: block;
+}
+
+.dropdown-content label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1rem;
 }
