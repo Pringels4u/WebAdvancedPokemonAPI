@@ -236,3 +236,20 @@ label[for="typeFilter"], label[for="genFilter"] {
   background: #C03028;
   color: white;
 }
+
+.no-results-msg {
+  margin: 3rem auto 0 auto;
+  max-width: 500px;
+  background: #fff4f4;
+  border: 2px solid #ef5350;
+  border-radius: 16px;
+  color: #ef5350;
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 2px 12px rgba(239,83,80,0.08);
+  position: center;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}

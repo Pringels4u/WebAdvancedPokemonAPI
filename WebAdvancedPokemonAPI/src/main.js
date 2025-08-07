@@ -35,6 +35,23 @@ let softLimit = 16;
 let currentLimit = softLimit;
 
 function renderPokemonList(pokemonList) {
+  // Verwijder grid tijdelijk als er geen resultaten zijn
+  if (pokemonList.length === 0) {
+    app.classList.remove('pokemon-grid');
+    app.innerHTML = '';
+    const msg = document.createElement('div');
+    msg.className = 'no-results-msg';
+    msg.textContent = 'Geen Pokémon gevonden. Probeer minder filters of een andere zoekterm.';
+    app.appendChild(msg);
+    // Verwijder eventueel de laad meer knop
+    const loadMoreContainer = document.getElementById('loadMoreContainer');
+    if (loadMoreContainer) loadMoreContainer.remove();
+    return;
+  } else {
+    if (!app.classList.contains('pokemon-grid')) {
+      app.classList.add('pokemon-grid');
+    }
+  }
   app.innerHTML = '';
   const limitedList = pokemonList.slice(0, currentLimit);
   limitedList.forEach(pokemon => {
@@ -67,7 +84,9 @@ function renderPokemonList(pokemonList) {
       loadMoreContainer.style.display = 'flex';
       loadMoreContainer.style.justifyContent = 'center';
       loadMoreContainer.style.margin = '2rem 0';
-      app.parentElement.appendChild(loadMoreContainer);
+      // Voeg toe aan de parent van de grid (de section erboven)
+      const section = app.parentElement;
+      section.appendChild(loadMoreContainer);
     }
     loadMoreContainer.innerHTML = '';
     const loadMoreBtn = document.createElement('button');
@@ -190,7 +209,9 @@ function filterPokemons() {
     filtered = filtered.filter(p => p.name.includes(searchValue));
   }
   if (checkedTypes.length > 0) {
-    filtered = filtered.filter(p => p.types.some(t => checkedTypes.includes(t.type.name)));
+    filtered = filtered.filter(p =>
+      checkedTypes.every(type => p.types.some(t => t.type.name === type))
+    );
   }
   if (checkedGens.length > 0) {
     filtered = filtered.filter(p => {
