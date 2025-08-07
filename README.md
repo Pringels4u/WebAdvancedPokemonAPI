@@ -11,6 +11,7 @@ Een interactieve Pokédex Single Page Application (SPA) gebouwd met Vite en de P
 ## ⚙️ Installatie
 
 ```bash
+cd .\WebAdvancedPokemonAPI
 npm install
 npm run dev
 ```
