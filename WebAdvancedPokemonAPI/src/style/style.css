@@ -27,9 +27,9 @@ select {
 
 .pokemon-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
-  padding: 2rem;
+  padding: 3rem;
 }
 
 .card {
@@ -138,4 +138,101 @@ label[for="typeFilter"], label[for="genFilter"] {
   display: block;
   margin-bottom: 8px;
   font-size: 1rem;
+}
+
+.sort-group {
+  margin: 1rem 3rem 2rem 0;
+  text-align: right;
+}
+.sort-group label {
+  font-weight: bold;
+  margin-right: 8px;
+  font-size: 1rem;
+}
+#sortSelect {
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.type-label {
+  display: inline-block;
+  padding: 0.2em 0.7em;
+  border-radius: 12px;
+  font-weight: bold;
+  margin: 0 2px;
+  font-size: 0.95em;
+}
+.type-grass {
+  background: #8add61;
+  color: black;
+}
+.type-fire {
+  background: #F08030;
+  color: white;
+}
+.type-normal {
+  background: #A8A878;
+  color: black;
+}
+.type-water {
+  background: #6890F0;
+  color: white;
+}
+.type-electric {
+  background: #F8D030;
+  color: black;
+}
+.type-ice {
+  background: #98D8D8;
+  color: black;
+}
+.type-poison {
+  background: #bd7bbd;
+  color: white;
+}
+.type-ground {
+  background: #E0C068;
+  color: black;
+}
+.type-flying {
+  background: #A890F0;
+  color: white;
+}
+.type-psychic {
+  background: #F85888;
+  color: white;
+}
+.type-bug {
+  background: #A8B820;
+  color: white;
+}
+.type-rock {
+  background: #B8A038;
+  color: white;
+}
+.type-ghost {
+  background: #705898;
+  color: white;
+}
+.type-dragon {
+  background: #7038F8;
+  color: white;
+}
+.type-dark {
+  background: #705848;
+  color: white;
+}
+.type-steel {
+  background: #B8B8D0;
+  color: black;
+}
+.type-fairy {
+  background: #EE99AC;
+  color: black;
+}
+.type-fighting {
+  background: #C03028;
+  color: white;
 }

@@ -2,6 +2,7 @@ const app = document.getElementById('app');
 const searchInput = document.getElementById('searchInput');
 const typeFilter = document.getElementById('typeFilter');
 const genFilter = document.getElementById('genFilter');
+const sortSelect = document.getElementById('sortSelect');
 
 let allPokemons = [];
 let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
@@ -30,7 +31,7 @@ async function fetchPokemons() {
   populateTypeFilter();
 }
 
-let softLimit = 198;
+let softLimit = 16;
 let currentLimit = softLimit;
 
 function renderPokemonList(pokemonList) {
@@ -42,7 +43,9 @@ function renderPokemonList(pokemonList) {
     card.innerHTML = `
       <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}" />
       <h3>${pokemon.name}</h3>
-      <p>Type: ${pokemon.types.map(t => t.type.name).join(', ')}</p>
+      <p>
+        ${pokemon.types.map(t => `<span class="type-label type-${t.type.name}">${t.type.name}</span>`).join(' ')}
+      </p>
       <button class="fav-btn">${favorites.includes(pokemon.name) ? '❤️' : '🤍'}</button>
     `;
 
@@ -71,7 +74,7 @@ function renderPokemonList(pokemonList) {
     loadMoreBtn.textContent = 'Laad meer';
     loadMoreBtn.className = 'load-more-btn';
     loadMoreBtn.addEventListener('click', () => {
-      currentLimit += 102;
+      currentLimit += 8;
       renderPokemonList(pokemonList);
     });
     loadMoreContainer.appendChild(loadMoreBtn);
@@ -159,12 +162,28 @@ document.addEventListener('DOMContentLoaded', () => {
 // Call this after DOM is loaded
 populateGenFilter();
 
+function sortPokemons(pokemonList) {
+  const sortBy = sortSelect.value;
+  if (sortBy === 'idLaag') {
+    return pokemonList.slice().sort((a, b) => a.id - b.id);
+  }
+  if (sortBy === 'idHoog') {
+    return pokemonList.slice().sort((a, b) => b.id - a.id);
+  }
+  if (sortBy === 'nameAz') {
+    return pokemonList.slice().sort((a, b) => b.name.localeCompare(a.name));
+    
+  }
+  if (sortBy === 'nameZa') {
+    return pokemonList.slice().sort((a, b) => a.name.localeCompare(b.name));
+  }
+  return pokemonList;
+}
+
 function filterPokemons() {
   let filtered = allPokemons;
   const searchValue = searchInput.value.toLowerCase();
-  // Types
   const checkedTypes = Array.from(typeFilter.querySelectorAll('.type-checkbox:checked')).map(cb => cb.value);
-  // Generaties
   const checkedGens = Array.from(genFilter.querySelectorAll('.gen-checkbox:checked')).map(cb => cb.value);
 
   if (searchValue) {
@@ -181,6 +200,7 @@ function filterPokemons() {
       });
     });
   }
+  filtered = sortPokemons(filtered);
   currentLimit = softLimit;
   renderPokemonList(filtered);
 }
@@ -188,5 +208,6 @@ function filterPokemons() {
 searchInput.addEventListener('input', filterPokemons);
 typeFilter.addEventListener('change', filterPokemons);
 genFilter.addEventListener('change', filterPokemons);
+sortSelect.addEventListener('change', filterPokemons);
 
 fetchPokemons();

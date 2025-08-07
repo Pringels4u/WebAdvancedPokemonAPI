@@ -31,10 +31,23 @@
       </section>
 
       <section>
+        <div class="sort-group">
+          <label for="sortSelect">Sorteren op:</label>
+          <select id="sortSelect">
+            <option value="idLaag">Pokedex nummer (Laagste eerst)</option>
+            <option value="idHoog">Pokedex nummer (Hoogste eerst)</option>
+            <option value="nameZa">Naam (A-Z)</option>
+            <option value="nameAz">Naam (Z-A)</option>
+          </select>
+        </div>
+      </section>
+
+      <section>
         <div id="app" class="pokemon-grid">
           <!-- Pokémon kaarten komen hier -->
         </div>
       </section>
+      
     </main>
 
     <script type="module" src="/src/main.js"></script>
