@@ -231,4 +231,20 @@ typeFilter.addEventListener('change', filterPokemons);
 genFilter.addEventListener('change', filterPokemons);
 sortSelect.addEventListener('change', filterPokemons);
 
+const showFavoritesBtn = document.getElementById('showFavoritesBtn');
+let showingFavorites = false;
+
+showFavoritesBtn.addEventListener('click', () => {
+  if (!showingFavorites) {
+    showFavoritesBtn.textContent = 'Toon alles';
+    const favPokemons = allPokemons.filter(p => favorites.includes(p.name));
+    renderPokemonList(favPokemons);
+    showingFavorites = true;
+  } else {
+    showFavoritesBtn.textContent = 'Favorieten';
+    filterPokemons();
+    showingFavorites = false;
+  }
+});
+
 fetchPokemons();

@@ -253,3 +253,19 @@ label[for="typeFilter"], label[for="genFilter"] {
   transform: translateX(-50%);
   z-index: 1;
 }
+
+.show-favorites-btn {
+  background: #ffd600;
+  color: #333;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 0.5rem 1.5rem;
+  margin-left: 1.5rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.show-favorites-btn:hover {
+  background: #ffe066;
+}
