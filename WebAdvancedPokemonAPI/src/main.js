@@ -173,9 +173,45 @@ function setupDropdowns() {
   });
 }
 
+// Observer API: Toon een melding als de gebruiker onderaan de lijst komt (infinite scroll demo)
+function setupScrollObserver() {
+  const observerTarget = document.createElement('div');
+  observerTarget.id = 'observerTarget';
+  app.parentElement.appendChild(observerTarget);
+
+  const observer = new IntersectionObserver((entries) => {
+    if (
+      entries[0].isIntersecting &&
+      app.querySelectorAll('.card').length > 0 &&
+      // Alleen tonen als er geen laad meer knop is
+      !document.getElementById('loadMoreContainer')
+    ) {
+      const info = document.getElementById('observerInfo');
+      if (!info) {
+        const infoMsg = document.createElement('div');
+        infoMsg.id = 'observerInfo';
+        infoMsg.textContent = 'Je bent onderaan de lijst gekomen!';
+        infoMsg.style.textAlign = 'center';
+        infoMsg.style.margin = '1rem auto';
+        infoMsg.style.background = '#e3fcec';
+        infoMsg.style.color = '#388e3c';
+        infoMsg.style.borderRadius = '12px';
+        infoMsg.style.padding = '0.7rem 1.2rem';
+        infoMsg.style.maxWidth = '300px';
+        infoMsg.style.fontWeight = 'bold';
+        observerTarget.appendChild(infoMsg);
+        setTimeout(() => infoMsg.remove(), 2000);
+      }
+    }
+  }, { threshold: 1 });
+
+  observer.observe(observerTarget);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   populateGenFilter();
   setupDropdowns();
+  setupScrollObserver();
 });
 
 // Call this after DOM is loaded

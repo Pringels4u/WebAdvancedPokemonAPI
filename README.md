@@ -42,3 +42,31 @@ npm run dev
 - De app werkt volledig client-side en gebruikt alleen de PokéAPI.
 - Favorieten worden opgeslagen in localStorage.
 - Voor performance worden Pokémon in batches geladen met een "Laad meer" knop.
+
+## 🛠️ Technische vereisten & implementatie
+
+| Vereiste | Implementatie | Bestand/Lijn |
+|---|---|---|
+| Pokémon ophalen en tonen | `fetchPokemons()` en `renderPokemonList()` | `src/main.js` (rond lijn 18, 36) |
+| Filteren op type (AND) | Checkboxen + filterlogica | `src/main.js` (filterPokemons, rond lijn 140) |
+| Filteren op generatie (meerdere tegelijk) | Checkboxen + filterlogica | `src/main.js` (filterPokemons, rond lijn 146) |
+| Zoeken op naam | Input + filterlogica | `src/main.js` (filterPokemons, rond lijn 137) |
+| Sorteren op nummer, naam, type | Dropdown + sorteerfunctie | `src/main.js` (sortPokemons, rond lijn 120) |
+| Favorieten opslaan | localStorage + toggleFavorite | `src/main.js` (toggleFavorite, rond lijn 100) |
+| Responsive grid | CSS grid | `src/style/style.css` (rond lijn 30) |
+| "Laad meer" knop | Soft limit + knop | `src/main.js` (renderPokemonList, rond lijn 80) |
+| Type-labels met kleur | CSS classes | `src/style/style.css` (rond lijn 180) |
+| Geen resultaten melding | `renderPokemonList()` + CSS | `src/main.js` (rond lijn 40), `src/style/style.css` (rond lijn 240) |
+| Favorieten tonen | Knop + filter | `src/main.js` (eind van bestand) |
+
+## 🖼️ Screenshots
+
+> Voeg hier screenshots toe van de applicatie in gebruik. Bijvoorbeeld:
+>
+> ![Pokédex overzicht](public/screenshot-overview.png)
+> ![Favorieten](public/screenshot-favorites.png)
+> ![Geen resultaten](public/screenshot-noresults.png)
+
+Plaats je screenshots in de map `public/` en verwijs ernaar zoals hierboven.
+
+---
