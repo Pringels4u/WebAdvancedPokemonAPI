@@ -5,9 +5,6 @@ Opdracht herexamen Web Advanced met gebruik van PokeAPI
 
 Een interactieve Pokédex Single Page Application (SPA) gebouwd met Vite en de PokéAPI. De app laat gebruikers Pokémon verkennen, filteren, zoeken, sorteren, en favorieten opslaan.
 
-## 🔗 Live demo
-> Voeg hier je link toe indien je het ook host via Netlify, Vercel, ...
-
 ## ⚙️ Installatie
 
 ```bash
@@ -68,6 +65,5 @@ npm run dev
 > ![Favorieten](public/screenshot-favorites.png)
 > ![Geen resultaten](public/screenshot-noresults.png)
 
-Plaats je screenshots in de map `public/` en verwijs ernaar zoals hierboven.
 
 ---
