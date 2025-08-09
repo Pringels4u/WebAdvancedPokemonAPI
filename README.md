@@ -59,10 +59,14 @@ npm run dev
 
 ## 🖼️ Screenshots
 
-> Voeg hier screenshots toe van de applicatie in gebruik. Bijvoorbeeld:
+> Basic overview van de website
 >
 > ![Pokédex overzicht](WebAdvancedPokemonAPI/public/screenshot-overview.png)
+> Pagina met favorieten
+>
 > ![Favorieten](WebAdvancedPokemonAPI/public/screenshot-favorites.png)
+> Melding bij foute parameters
+>
 > ![Geen resultaten](WebAdvancedPokemonAPI/public/screenshot-noresults.png)
 
 
