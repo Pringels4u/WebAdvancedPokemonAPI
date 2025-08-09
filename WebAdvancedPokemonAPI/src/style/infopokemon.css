@@ -1,0 +1,118 @@
+/* infopokemon.css */
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+#info-app {
+  max-width: 600px;
+  margin: 2rem auto;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  padding: 2rem 2rem 2.5rem 2rem;
+}
+
+.info-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+.info-sprite {
+  width: 120px;
+  height: 120px;
+  background: #f8f8f8;
+  border-radius: 50%;
+  border: 2px solid #eee;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.info-id {
+  color: #888;
+  font-size: 1.2rem;
+  font-weight: normal;
+}
+.info-types {
+  margin-top: 0.5rem;
+}
+.type-label {
+  display: inline-block;
+  padding: 0.2em 0.7em;
+  border-radius: 12px;
+  font-weight: bold;
+  margin: 0 2px 4px 0;
+  font-size: 0.95em;
+  color: white;
+}
+.type-grass { background: #8add61; color: black; }
+.type-fire { background: #F08030; }
+.type-water { background: #6890F0; }
+.type-electric { background: #F8D030; color: black; }
+.type-ice { background: #98D8D8; color: black; }
+.type-poison { background: #bd7bbd; }
+.type-ground { background: #E0C068; color: black; }
+.type-flying { background: #A890F0; }
+.type-psychic { background: #F85888; }
+.type-bug { background: #A8B820; }
+.type-rock { background: #B8A038; }
+.type-ghost { background: #705898; }
+.type-dragon { background: #7038F8; }
+.type-dark { background: #705848; }
+.type-steel { background: #B8B8D0; color: black; }
+.type-fairy { background: #EE99AC; color: black; }
+.type-normal { background: #A8A878; color: black; }
+.type-fighting { background: #C03028; }
+
+.info-section {
+  margin-top: 2rem;
+}
+.info-section h2 {
+  margin-bottom: 0.5rem;
+  color: #ef5350;
+  font-size: 1.2rem;
+}
+.info-stats {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.stat-row {
+  display: flex;
+  align-items: center;
+  min-height: 28px; /* vaste hoogte voor alle rijen */
+}
+.stat-name {
+  width: 120px; /* was 90px, nu breder voor lange namen */
+  min-width: 120px;
+  text-transform: capitalize;
+  color: #555;
+  flex-shrink: 0;
+}
+.stat-bar-bg {
+  flex: 1;
+  background: #eee;
+  border-radius: 8px;
+  margin: 0 10px;
+  height: 16px;
+  overflow: hidden;
+}
+.stat-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #ef5350 60%, #ffd600 100%);
+  border-radius: 8px;
+}
+.stat-value {
+  width: 40px;
+  text-align: right;
+  color: #333;
+}
+.error {
+  color: #ef5350;
+  text-align: center;
+  margin: 2rem 0;
+  font-size: 1.2rem;
+}

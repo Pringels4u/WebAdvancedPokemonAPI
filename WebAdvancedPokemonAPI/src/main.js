@@ -72,6 +72,12 @@ function renderPokemonList(pokemonList) {
       favBtn.textContent = favorites.includes(pokemon.name) ? '❤️' : '🤍';
     });
 
+    card.addEventListener('click', (e) => {
+      // Voorkom dat de favorieten-knop de redirect triggert
+      if (e.target.classList.contains('fav-btn')) return;
+      window.location.href = `/src/infopokemon.html?name=${pokemon.name}`;
+    });
+
     app.appendChild(card);
   });
   if (pokemonList.length > currentLimit) {

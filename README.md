@@ -24,6 +24,8 @@ npm run dev
 - "Laad meer" knop om extra Pokémon te tonen
 - Type-labels met kleur per type
 - Duidelijk bericht als er geen resultaten zijn
+- Observer API melding onderaan de lijst
+- Detailpagina met correcte zwaktes/resistenties voor dual-types
 
 ## 📦 Gebruikte technologieën
 - [Vite](https://vitejs.dev/) (build tool)
@@ -33,29 +35,36 @@ npm run dev
 ## 📁 Projectstructuur
 - `index.html` – Hoofdpagina
 - `src/main.js` – Hoofdlogica (filteren, sorteren, laden)
-- `src/style/style.css` – Styling
-- `public/` – Assets
+- `src/infopokemon.html` – Detailpagina
+- `src/infopokemon.js` – Logica detailpagina
+- `src/style/style.css` – Styling hoofdgrid
+- `src/style/infopokemon.css` – Styling detailpagina
+- `public/` – Assets (screenshots)
 
 ## 📝 Opmerkingen
 - De app werkt volledig client-side en gebruikt alleen de PokéAPI.
 - Favorieten worden opgeslagen in localStorage.
 - Voor performance worden Pokémon in batches geladen met een "Laad meer" knop.
+- De detailpagina berekent zwaktes/resistenties correct voor dual-types (zie `src/infopokemon.js`).
+- Observer API (IntersectionObserver) toont melding als je onderaan de lijst bent.
 
 ## 🛠️ Technische vereisten & implementatie
 
 | Vereiste | Implementatie | Bestand/Lijn |
 |---|---|---|
-| Pokémon ophalen en tonen | `fetchPokemons()` en `renderPokemonList()` | `src/main.js` (rond lijn 18, 36) |
-| Filteren op type (AND) | Checkboxen + filterlogica | `src/main.js` (filterPokemons, rond lijn 140) |
-| Filteren op generatie (meerdere tegelijk) | Checkboxen + filterlogica | `src/main.js` (filterPokemons, rond lijn 146) |
-| Zoeken op naam | Input + filterlogica | `src/main.js` (filterPokemons, rond lijn 137) |
-| Sorteren op nummer, naam, type | Dropdown + sorteerfunctie | `src/main.js` (sortPokemons, rond lijn 120) |
-| Favorieten opslaan | localStorage + toggleFavorite | `src/main.js` (toggleFavorite, rond lijn 100) |
-| Responsive grid | CSS grid | `src/style/style.css` (rond lijn 30) |
-| "Laad meer" knop | Soft limit + knop | `src/main.js` (renderPokemonList, rond lijn 80) |
-| Type-labels met kleur | CSS classes | `src/style/style.css` (rond lijn 180) |
-| Geen resultaten melding | `renderPokemonList()` + CSS | `src/main.js` (rond lijn 40), `src/style/style.css` (rond lijn 240) |
-| Favorieten tonen | Knop + filter | `src/main.js` (eind van bestand) |
+| Pokémon ophalen en tonen | `fetchPokemons()` en `renderPokemonList()` | `src/main.js` |
+| Filteren op type (AND) | Checkboxen + filterlogica | `src/main.js` (filterPokemons) |
+| Filteren op generatie (meerdere tegelijk) | Checkboxen + filterlogica | `src/main.js` (filterPokemons) |
+| Zoeken op naam | Input + filterlogica | `src/main.js` (filterPokemons) |
+| Sorteren op nummer, naam, type | Dropdown + sorteerfunctie | `src/main.js` (sortPokemons) |
+| Favorieten opslaan | localStorage + toggleFavorite | `src/main.js` (toggleFavorite) |
+| Responsive grid | CSS grid | `src/style/style.css` |
+| "Laad meer" knop | Soft limit + knop | `src/main.js` (renderPokemonList) |
+| Type-labels met kleur | CSS classes | `src/style/style.css` |
+| Geen resultaten melding | `renderPokemonList()` + CSS | `src/main.js`, `src/style/style.css` |
+| Favorieten tonen | Knop + filter | `src/main.js` |
+| Detailpagina met zwaktes/resistenties | `renderPokemonInfo()` | `src/infopokemon.js` |
+| Observer API melding | IntersectionObserver | `src/main.js` |
 
 ## 🖼️ Screenshots
 
@@ -68,6 +77,9 @@ npm run dev
 > Melding bij foute parameters
 >
 > ![Geen resultaten](WebAdvancedPokemonAPI/public/screenshot-noresults.png)
+> Info pagina van pokemon
+>
+> ![Info pagina](WebAdvancedPokemonAPI/public/screenshot-info-pokemon.png)
 
 
 ---
